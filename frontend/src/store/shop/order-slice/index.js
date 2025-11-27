@@ -14,7 +14,7 @@ export const createNewOrder = createAsyncThunk(
   "/order/createNewOrder/cod",
   async (orderData) => {
     const response = await axios.post(
-      "http://localhost:5000/api/shop/cod/proceed-order",
+      `${import.meta.env.VITE_REACT_APP_BACKEND_BASEURL}/api/shop/cod/proceed-order`,
       orderData
     );
 
@@ -26,7 +26,7 @@ export const EsewaInitiatePayment = createAsyncThunk(
   "/order/esewa/payment-initiate",
   async (orderData) => {
     const response = await axios.post(
-      "http://localhost:5000/api/shop/esewa/payment-initiate",
+      `${import.meta.env.VITE_REACT_APP_BACKEND_BASEURL}/api/shop/esewa/payment-initiate`,
       orderData
     );
 
@@ -38,7 +38,7 @@ export const paymentStatus = createAsyncThunk(
   "/order/esewa/payment-status",
   async ({orderData, decoded}) => {
     const response = await axios.post(
-      "http://localhost:5000/api/shop/esewa/payment-status",
+      `${import.meta.env.VITE_REACT_APP_BACKEND_BASEURL}/api/shop/esewa/payment-status`,
       {orderData, decoded}
     );
 
@@ -50,7 +50,7 @@ export const getAllOrdersByUserId = createAsyncThunk(
   "/order/getAllOrdersByUserId",
   async (userId) => {
     const response = await axios.get(
-      `http://localhost:5000/api/shop/order/list/${userId}`
+      `${import.meta.env.VITE_REACT_APP_BACKEND_BASEURL}/api/shop/order/list/${userId}`
     );
 
     return response.data;
@@ -61,7 +61,7 @@ export const getOrderDetails = createAsyncThunk(
   "/order/getOrderDetails",
   async (id) => {
     const response = await axios.get(
-      `http://localhost:5000/api/shop/order/details/${id}`
+      `${import.meta.env.VITE_REACT_APP_BACKEND_BASEURL}/api/shop/order/details/${id}`
     );
 
     return response.data;

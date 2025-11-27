@@ -40,7 +40,7 @@ const Success = () => {
         console.log("Full URL:", `${import.meta.env.VITE_BACKEND_URL}/api/payment/status/${decoded.transaction_uuid}`);
 
         const response = await axios.get(
-          `http://localhost:5000/api/shop/esewa/payment/status/${decoded.transaction_uuid}`
+          `${import.meta.env.VITE_REACT_APP_BACKEND_BASEURL}/api/shop/esewa/payment/status/${decoded.transaction_uuid}`
         );
 
         if (response.status === 200) {
